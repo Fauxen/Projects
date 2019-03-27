@@ -1,17 +1,16 @@
 import time
-import Task_1
+from Task_1 import *
 highest_bids = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-buyer_numbers = {'1256': 'bidding', '2301': 'bidding', '2244': 'bidding', '8976': 'bidding', '9009': 'bidding',
-                 '8221': 'bidding'}
+buyer_numbers = {'1256': 'bidding', '2301': 'bidding', '2244': 'bidding'}
 print('\nWelcome to the Auction!\n\nChoose from the items below:\n')
 
 
 def print_items():
-    for item_number in Task_1.item_numbers:
+    for item_number in item_numbers:
         print('Item Number= ' + str(item_number) + '.')
         # Find the index of item_number in the list and use that to find index of description.
-        print('Item Description= ' + Task_1.descriptions[Task_1.item_numbers.index(item_number)])
-        print('Current Highest Bid= $' + str(highest_bids[Task_1.item_numbers.index(item_number)]) + '.\n\n')
+        print('Item Description= ' + descriptions[item_numbers.index(item_number)])
+        print('Current Highest Bid= $' + str(highest_bids[item_numbers.index(item_number)]) + '.\n\n')
 
 
 while 1:
@@ -34,12 +33,12 @@ while 1:
                         continue
                 else:
                     item_number = int(input('\nPlease enter the item number: '))
-                    if item_number in Task_1.item_numbers:
+                    if item_number in item_numbers:
                         bid = int(input('\nPlease enter your bid: $'))
                         # Find index of item_number in the item_numbers list then use the index to get highest_bid.
-                        if bid > highest_bids[Task_1.item_numbers.index(item_number)]:
-                            highest_bids[Task_1.item_numbers.index(item_number)] = bid
-                            Task_1.number_of_bids[Task_1.item_numbers.index(item_number)] += 1
+                        if bid > highest_bids[item_numbers.index(item_number)]:
+                            highest_bids[item_numbers.index(item_number)] = bid
+                            number_of_bids[item_numbers.index(item_number)] += 1
                             print('\nBid successful. Thank you!')
                             time.sleep(2)
                         else:

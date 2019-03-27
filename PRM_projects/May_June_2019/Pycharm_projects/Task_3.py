@@ -1,3 +1,3 @@
-import Task_1, Task_2
-
+from Task_1 import *
+from Task_2 import *
 
