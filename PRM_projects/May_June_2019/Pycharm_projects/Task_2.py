@@ -9,8 +9,9 @@ def print_items():
     for item_number in item_numbers:
         print('Item Number= ' + str(item_number) + '.')
         # Find the index of item_number in the list and use that to find index of description.
-        print('Item Description= ' + descriptions[item_numbers.index(item_number)])
-        print('Current Highest Bid= $' + str(highest_bids[item_numbers.index(item_number)]) + '.\n\n')
+        index = item_numbers.index(item_number)
+        print('Item Description= ' + descriptions[index])
+        print('Current Highest Bid= $' + str(highest_bids[index]) + '.\n\n')
 
 
 while 1:
@@ -56,4 +57,5 @@ while 1:
     except ValueError:
         print("\nIncorrect input.")
         time.sleep(2)
-print('\nThe auction has come to an end. Thank you everyone!\n')
+print('\nThe auction has come to an end. Thank you everyone!')
+time.sleep(2)
