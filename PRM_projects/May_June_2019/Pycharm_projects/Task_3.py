@@ -18,7 +18,7 @@ if 'sold' in status_of_items:
             # Taking total fee by multiplying by 110/100, then round it to cents.
             total_auction_fee += round((10/100)*highest_bids[index], 2)
         index_start += 1
-    print('\nTotal auction fee= $' + str(total_auction_fee) + '\n\n')
+    print('\nTotal auction fee= $' + str(total_auction_fee) + ' .\n\n')
 else:
     print('Total auction fee= $0')
 input('Press enter to continue')
