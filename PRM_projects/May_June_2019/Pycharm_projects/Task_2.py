@@ -1,12 +1,15 @@
-import time
+from os import system, name
+from time import sleep
 from Task_1 import *
 highest_bids = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 buyer_numbers = {'1256': 'bidding', '2301': 'bidding', '2244': 'bidding'}
-print('\nWelcome to the Auction!\n\nChoose from the items below:\n')
+print('\nWelcome to the Auction!\n')
+input('Press enter to continue')
 
 
 def print_items():
     for item_number in item_numbers:
+        print('\nChoose from the items below:\n\n')
         print('Item Number= ' + str(item_number) + '.')
         # Find the index of item_number in the list and use that to find index of description.
         index = item_numbers.index(item_number)
@@ -14,7 +17,16 @@ def print_items():
         print('Current Highest Bid= $' + str(highest_bids[index]) + '.\n\n')
 
 
+def clear():
+    """For clearing the screen after printing items."""
+    if name == 'nt':
+        system('cls')
+    else:
+        system('clear')
+
+
 while 1:
+    clear()
     print_items()
     try:
         prompt = input('Do you want to place a bid? [yes/no]: ')
@@ -26,7 +38,7 @@ while 1:
                 if prompt == 'no':
                     buyer_numbers[buyer_number] = 'not bidding'
                     print('\nThank you!')
-                    time.sleep(1)
+                    sleep(1)
                     # We check if everyone has said no.
                     if 'bidding' not in buyer_numbers.values():
                         break
@@ -40,22 +52,22 @@ while 1:
                         if bid > highest_bids[item_numbers.index(item_number)]:
                             highest_bids[item_numbers.index(item_number)] = bid
                             number_of_bids[item_numbers.index(item_number)] += 1
-                            print('\nBid successful. Thank you!')
-                            time.sleep(2)
+                            print('\nBid successful. Thank you!\n')
+                            sleep(2)
                         else:
                             print('\nWe are sorry, but your bid is too low.')
-                            time.sleep(2)
+                            sleep(2)
                     else:
                         print('\nWe are sorry, but there is no such item number.\n')
-                        time.sleep(2)
+                        sleep(2)
             else:
                 print('\nWe are sorry, but you are not authorized to bid.\n')
-                time.sleep(2)
+                sleep(2)
         else:
             print('\nPlease input a valid option.\n')
-            time.sleep(2)
+            sleep(2)
     except ValueError:
         print("\nIncorrect input.")
-        time.sleep(2)
+        sleep(2)
 print('\nThe auction has come to an end. Thank you everyone!')
-time.sleep(2)
+sleep(2)

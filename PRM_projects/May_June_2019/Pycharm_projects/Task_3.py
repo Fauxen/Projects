@@ -11,35 +11,41 @@ for item in item_numbers:
         status_of_items.append('no bids')
 print('\nItems sold:-\n')
 if 'sold' in status_of_items:
+    index_start = 0
     for status in status_of_items:
-        index = status_of_items.index(status)
+        index = status_of_items.index(status, index_start)
         if status == 'sold':
-            print('Item Number= ' + str(item_number[index]) + '.')
-            # Taking total fee by multiplying by 110/100.
-            print('Total fee= $' + str((110/100)*highest_bids[index]) + '.\n\n')
+            print('Item Number= ' + str(item_numbers[index]) + '.')
+            # Taking total fee by multiplying by 110/100, then round it to cents.
+            print('Total fee= $' + str(round((110/100)*highest_bids[index], 2)) + ' .\n\n')
+        index_start += 1
 else:
     print('None\n\n')
-input('Please press enter.')
-print('\nItems with bids that did not reach their reserve price: \n')
+input('Press enter to continue')
+print('\nItems with bids that did not reach their reserve price:- \n')
 if 'did not reach reserve price' in status_of_items:
+    index_start = 0
     for status in status_of_items:
-        index = status_of_items.index(status)
+        index = status_of_items.index(status, index_start)
         if status == 'did not reach reserve price':
-            print('Item Number= ' + str(item_number[index]) + '.')
-            print('Final bid= $' + highest_bids[index] + '.\n\n')
+            print('Item Number= ' + str(item_numbers[index]) + '.')
+            print('Final bid= $' + str(highest_bids[index]) + '.\n\n')
+        index_start += 1
 else:
     print('None\n\n')
-input('Please press enter.')
-print('\nItems that received no bids: \n')
+input('Press enter to continue')
+print('\nItems that received no bids:- \n')
 if 'no bids' in status_of_items:
+    index_start = 0
     for status in status_of_items:
-        index = status_of_items.index(status)
+        index = status_of_items.index(status, index_start)
         if status == 'no bids':
-            print('Item Number= ' + str(item_number[index]) + '.\n')
+            print('Item Number= ' + str(item_numbers[index]) + '.\n')
+        index_start += 1
 else:
     print('None\n\n')
-input('Please press enter.')
+input('Press enter to continue')
 print('\nNumber of items sold= ' + str(status_of_items.count('sold')) + '.')
 print('Number of items that did not reach their reserve price= ' + str(status_of_items.count(
     'did not reach reserve price')) + '.')
-print('Number of items with no bids= ' + str(status_of_items.count('no bids')) + '.')
+print('Number of items with no bids= ' + str(status_of_items.count('no bids')) + '.\n')
