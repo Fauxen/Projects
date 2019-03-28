@@ -71,3 +71,4 @@ while 1:
         sleep(2)
 print('\nThe auction has come to an end. Thank you everyone!')
 sleep(2)
+clear()
