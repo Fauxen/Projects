@@ -1,5 +1,6 @@
 from Task_2 import *
 status_of_items = []
+total_auction_fee = 0
 for item in item_numbers:
     # Find index of highest bid for an item according to its position in the item_numbers list.
     index = item_numbers.index(item)
@@ -9,18 +10,17 @@ for item in item_numbers:
         status_of_items.append('did not reach reserve price')
     else:
         status_of_items.append('no bids')
-print('\nItems sold:-\n')
 if 'sold' in status_of_items:
     index_start = 0
     for status in status_of_items:
         index = status_of_items.index(status, index_start)
         if status == 'sold':
-            print('Item Number= ' + str(item_numbers[index]) + '.')
             # Taking total fee by multiplying by 110/100, then round it to cents.
-            print('Total fee= $' + str(round((110/100)*highest_bids[index], 2)) + ' .\n\n')
+            total_auction_fee += round((10/100)*highest_bids[index], 2)
         index_start += 1
+    print('\nTotal auction fee= $' + str(total_auction_fee) + '\n\n')
 else:
-    print('None\n\n')
+    print('Total auction fee= $0')
 input('Press enter to continue')
 print('\nItems with bids that did not reach their reserve price:- \n')
 if 'did not reach reserve price' in status_of_items:
