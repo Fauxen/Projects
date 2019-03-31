@@ -15,7 +15,7 @@ if 'sold' in status_of_items:
     for status in status_of_items:
         index = status_of_items.index(status, index_start)
         if status == 'sold':
-            # Taking total fee by multiplying by 110/100, then round it to cents.
+            # Taking auction fee by multiplying by 10/100, then rounding it to cents.
             total_auction_fee += round((10/100)*highest_bids[index], 2)
         index_start += 1
     print('\nTotal auction fee= $' + str(total_auction_fee) + ' .\n\n')

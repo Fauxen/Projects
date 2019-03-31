@@ -8,8 +8,8 @@ input('Press enter to continue')
 
 
 def print_items():
+    print('\nChoose from the items below:\n\n')
     for item_number in item_numbers:
-        print('\nChoose from the items below:\n\n')
         print('Item Number= ' + str(item_number) + '.')
         # Find the index of item_number in the list and use that to find index of description.
         index = item_numbers.index(item_number)
